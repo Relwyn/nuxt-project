@@ -8,7 +8,7 @@ function createRequest() {
 
 const request = createRequest()
 
-export function getCardInfo(name = 91152256) {
+export function getCardInfo({ name = 46986414 }) {
   return request
     .get(`/api/v5/cardinfo.php`, {
       params: {
