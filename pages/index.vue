@@ -19,10 +19,14 @@
         <p>{{ text }}</p>
       </div>
     </div>
+    <button @click="getCardInfo">
+      Infos
+    </button>
   </section>
 </template>
 <script>
 import { fireDb } from '~/plugins/firebase.js'
+import { getCardInfo } from '@/api/api.js'
 export default {
   data() {
     return {
@@ -48,7 +52,7 @@ export default {
     async writeToFirestore() {
       const ref = fireDb.collection('test').doc('test')
       const document = {
-        text: 'TOTO'
+        text: 'TONY'
       }
       try {
         await ref.set(document)
@@ -69,6 +73,14 @@ export default {
       }
       this.text = snap.data().text
       this.readSuccessful = true
+    },
+    async getCardInfo() {
+      const data = await getCardInfo()
+      if (data) {
+        console.log(data)
+      } else {
+        console.log('non')
+      }
     }
   }
 }
