@@ -1,11 +1,22 @@
 <template>
-  <div>
+  <div id="app">
+    <side-bar />
     <nuxt />
   </div>
 </template>
 
+<script>
+import SideBar from '@/components/layout/SideBar.vue'
+export default {
+  components: {
+    SideBar
+  }
+}
+</script>
+
 <style>
-html {
+html,
+body {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
